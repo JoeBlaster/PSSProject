@@ -1,5 +1,7 @@
 # PSSProject
-# Ročníková práce - Zdrojové URL odkazy
+# Webový server Apache HTTP Server
+# Ročníková práce – Milan Sešín
+# Zdrojové URL odkazy
 # http://whatis.techtarget.com
 # https://cs.wikipedia.org/
 # https://en.wikipedia.org/
