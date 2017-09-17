@@ -1,0 +1,50 @@
+Popište funkce, činnost, účel atd následujících témat. Týkají se počítačů obecně či počítačů embedded:
+Procesor, základní pojmy, ALU, procesory RISC a CISC.
+
+CPU
+Centrální procesorová jednotka (zkratka CPU, anglicky central processing unit) je v IT označení základní elektronické součásti v počítači, která umí vykonávat strojové instrukce, ze kterých je tvořen počítačový program a obsluhovat jeho vstupy a výstupy. Historicky byl CPU složen z velmi mnoha elektronických součástek, avšak kolem roku 1970 byly všechny potřebné obvody sloučeny do jednoho integrovaného obvodu, který je označován jako mikroprocesor.
+(CPU) provádí strojové instrukce. Mezi hlavní součásti procesoru patří aritmeticko-logická jednotka, registry a řadič, který řídí činnost procesoru (načítání strojových instrukcí z paměti, jejich dekódování, provedení a uložení výsledků). V současných počítačích je obvykle několik dalších procesorových jednotek, které s hlavní procesorovou jednotkou spolupracují (zajišťují například vstup/výstup, příjem GPS signálu, komunikaci s bezdrátovou sítí Wi-Fi atd.). Má-li obvod v sobě více procesorových jednotek, je označována jako vícejádrový procesor.
+Složení procesoru
+•	Řadič nebo řídicí jednotka, která zajišťuje součinnost jednotlivých částí procesoru dle prováděných strojových instrukcí (jejich dekódování, načítání operandů instrukcí z operační paměti a ukládání výsledků zpracování instrukcí).
+•	Sada registrů pro uchování operandů a mezivýsledků. Přístup k registrům je mnohem rychlejší než přístup do operační paměti připojené k procesoru pomocí sběrnice. Registry dělíme na obecné (pracovní, univerzální) a řídící (např. čítač instrukcí, stavové registry, registr vrcholu zásobníku, indexregistry). Bitová šířka pracovních registrů je jednou ze základních charakteristik procesoru.
+•	Jedna nebo více aritmeticko-logických jednotek (ALU), které provádí nad daty aritmetické a logické operace.
+•	Současné CPU obsahují také matematický koprocesor (FPU), který provádí operace s desetinnými čísly.
+•	Současné CPU většinou obsahují také vektorovou jednotku, která je v podstatě matematickým koprocesorem optimalizovaným pro operace s vektory desetinných čísel.
+
+ALU – Aritmeticko Logická Jednotka
+Aritmeticko-logická jednotka (ALU podle anglického arithmetic logic unit) je jedna ze základních komponent počítačového procesoru (tou druhou je řadič), ve které se provádějí všechny aritmetické (např. sčítání, násobení, bitový posuv, …) a logické (logický součin, negace, …) výpočty.
+V mnoha dnešních procesorech je na jednom procesoru více než jedna ALU, obvykle rozdělené na jednotky pro práci s celočíselnými operandy a jednotky pro práci s operandy v plovoucí řádové čárce (ty se někdy neoznačují jako ALU, ale jako FPU, floating-point unit). Jednotlivé ALU pracují relativně nezávisle, takže procesor může v jednom hodinovém taktu provést více instrukcí ve více jednotkách současně.
+Jednotlivé operace v aritmeticko-logické jednotce jsou prováděny nad operandy s pevně daným rozsahem závislým na architektuře. Výpočty s libovolnou přesností je tak zapotřebí provádět pomocí softwarových knihoven.
+
+
+Procesory CISC a RISC
+V dnešní době se ustálilo dělení počítačů do dvou základních kategorií podle typu použitého procesoru:
+•CISC
+- počítač se složitým souborem instrukcí (Complex Instruction Set Computer)
+•RISC
+- počítač s redukovaným souborem instrukcí (Reduced Instruction Set Computer)
+Ať už je toto dělení jakkoli nepřesné, je třeba jej považovat za obvyklé.
+V dnešní době totiž prakticky neexistují procesory, které by nesly ”čisté”rysy RISC a CISC, vždy jde o kompromis mezi oběma směry. Z hlediska historického vývoje je důležité se věnovat okamžiku, kdy se vývoj procesorů rozdělil do dvou větví. Vývoj procesorů, které následně dostaly označení CISC, směřoval na konci 70. let k nezadržitelnému růstu jejich složitosti a tak se objevily první pokusy o celkové zjednodu šení struktury procesorů. Vznikla tak celá nová kategorie procesorů, dnes označovaná jako RISC.
+
+Vlastnosti architektury RISC
+Bezesporu nejtypičtější vlastností charakterizující počítače RISC je malý instrukční soubor. Pro tuto vývojovou větev si ale vývojáři stanovili celou řadu dalších vcelku zásadních kritérií, charakterizujících metodiku návrhu nejen procesoru, ale celého počítače. Procesoru je třeba přenechat jen tu činnost,
+která je nezbytně nutná a přenést další potřebné funkce do architektury počítače, programového vybavení a kompilátoru. Výsledkem návrhu konstrukce procesoru RISC jsou zejména tyto vlastnosti:
+
+•v každém strojovém cyklu by měla být dokončena jedna instrukce (pozor, to neznamená, že její vykonání trvalo jeden stroj. cyklus),
+•mikroprogramový řadič může být nahrazen rychlejším obvodovým řadičem,
+•používat zřetězené zpracování instrukcí,
+•celkový počet instrukcí a způsobů adresování je malý,
+•data jsou z hlavní paměti vybírána a následně ukládána výhradně jen pomocí dvou instrukcí LOAD a STORE,
+•instrukce mají pevnou délku a jednotný formát, který vymezuje význam jednotlivých bitů,
+•je použit vyšší počet registrů,
+•složitost se z technického vybavení přesouvá částečně do optimalizujícího kompilátoru.
+
+Vlastnosti architekruty CISC
+Procesory CISC jsou charakteristické velmi Košatou instrukční sadou strojových instrukcí, instrukce mají proměnlivou délku i dobu vykonání a procesor obsahuje relativně nízký počet registrů. Paradoxně se tak může stát, že operace provedená složenou instrukcí (například násobení) může být nahrazena sledem jednodušších strojových instrukcí (sčítání a bitové posuvy), které mohou být ve výsledku vykonány rychleji, než hardwarově implementovaná složená varianta.
+Označení CISC bylo zavedeno jako protiklad až poté, co se prosadily procesory RISC, které mají instrukční sadu naopak maximálně redukovanou (pouze jednoduché operace, tj. žádné složené, jsou stejně dlouhé a jejich vykonání trvá stejnou dobu). 
+Obvyklou chybou je domněnka, že procesory CISC mají více strojových instrukcí, než procesory RISC. Ve skutečnosti nejde o absolutní počet, ale o počet různých druhů operací, které procesor sám přímo umí vykonat na hardwarové úrovni (tj. již z výroby). Procesor CISC tak může například paradoxně obsahovat pouze jednu strojovou instrukci pro danou operaci (např. logická operace), zatímco procesor RISC může tuto operaci obsahovat jako několik strojových instrukcí, které stejnou operaci umí provést nad různými registry.
+
+Rozdíl mezi CISC a RISC
+Široká instrukční sada procesorů CISC usnadňuje jejich programování, protože není některé operace nutné rozepisovat (například násobení), avšak ve strojovém kódu (nebo v jazyce symbolických adres) se dnes programuje jen minimálně. Složitost CISC procesorů vede k problémům při výrobě (velká spotřeba materiálu, větší pravděpodobnost vady, komplikovaný návrh, problémy s vysokými frekvencemi, pipelining, cache atd).
+Typickými zástupci koncepce CISC jsou procesory rodiny Motorola 68000 a procesory postavené na architektuře Intel x86.
+
